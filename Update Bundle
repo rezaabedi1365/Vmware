@@ -1,0 +1,47 @@
+Build numbers and versions of VMware ESXi/ESX
+https://knowledge.broadcom.com/external/article/316595/build-numbers-and-versions-of-vmware-esx.html
+
+HP VMware ESXi support
+https://techlibrary.hpe.com/us/en/enterprise/servers/supportmatrix/vmware.aspx
+
+
+https://technet24.ir/%d8%a2%d9%85%d9%88%d8%b2%d8%b4-%d8%a8%d9%87-%d8%b1%d9%88%d8%b2-%d8%b1%d8%b3%d8%a7%d9%86%db%8c-esxi-21419
+
+#vmware -v
+#esxcli system version get
+
+
+
+
+#esxcli system maintenanceMode set -e true
+OR
+#vim-cmd hostsvc/maintenance_mode_enter
+verify:
+#esxcli system maintenanceMode get
+
+list update :
+#esxcli software sources profile list --depot=file:///vmfs/volumes/6476fd6
+7-83fa22cb-7ac6-e4115baac5c4/ESXi600-202002001.zip
+****--depot=file:  =  -d
+
+Name                             Vendor        Acceptance Level
+-------------------------------  ------------  ----------------
+ESXi-6.0.0-20200204001-standard  VMware, Inc.  PartnerSupported
+ESXi-6.0.0-20200204001-no-tools  VMware, Inc.  PartnerSupported
+
+
+install update:
+#esxcli software profile update --depot=file:///vmfs/volumes/6476fd67-83fa
+22cb-7ac6-e4115baac5c4/ESXi600-202002001.zip -p ESXi-6.0.0-20200204001-standard
+
+Update Result
+   Message: The update completed successfully, but the system needs to be rebooted for the changes to be effective.
+   Reboot Required: true
+
+------------------------------------------------------------------
+https://knowledge.broadcom.com/external/article/316595/build-numbers-and-versions-of-vmware-esx.html
+ESXi 6.0 EP 25 	ESXi600-202002001 	2020/02/20 	15517548 	
+ESXi 6.5 P09 	ESXi650-202210001 	2022/10/06 	20502893 
+ESXi 6.7 P08 	ESXi670-202210001 	2022/10/06 	20497097	
+ESXi 7.0 P09 	ESXi 7.0 Update 3q 	2024/05/21 	23794027
+ESXi 8.0 U2 EP2 ESXi 8.0 Update 2c 	2024/05/21 	23825572 	
