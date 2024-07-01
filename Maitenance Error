@@ -1,3 +1,13 @@
 
 #https://virtuallibrary.tech/?p=1052
+Verify the Signing 
+          >Certificate Chains (Administration -> Certificates -> Certificate Management -> STS certificate, click View Details
+To renew the certificate execute this command 
+#/usr/lib/vmware-vmca/bin/certificate-manager with option 6 “Replace Solution user certificates with VMCA certificates”
+
+
+
+
+
+vCLS service waht is ?
 
