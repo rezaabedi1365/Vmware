@@ -1,7 +1,12 @@
 
 #https://virtuallibrary.tech/?p=1052
-Verify the Signing 
-          >Certificate Chains (Administration -> Certificates -> Certificate Management -> STS certificate, click View Details
+Verify the Signing:
+verify method1):
+>Certificate Chains (Administration -> Certificates -> Certificate Management -> STS certificate, click View Details
+verify method2):
+It’s time to check if you have a certificate expired, login to VCSA over ssh and execute this command:
+#for store in $(/usr/lib/vmware-vmafd/bin/vecs-cli store list | grep -v TRUSTED_ROOT_CRLS); do echo “[*] Store :” $store; /usr/lib/vmware-vmafd/bin/vecs-cli entry list –store $store –text | grep -ie “Alias” -ie “Not After”;done;
+
 To renew the certificate execute this command 
 #/usr/lib/vmware-vmca/bin/certificate-manager with option 6 “Replace Solution user certificates with VMCA certificates”
 
